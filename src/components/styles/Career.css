@@ -1,0 +1,153 @@
+.resume-section {
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  padding: 110px 0 80px;
+  background-color: var(--backgroundColor);
+}
+
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 44px;
+}
+
+.resume-header p {
+  margin: 0;
+  color: var(--accentColor);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.resume-header h2 {
+  max-width: 780px;
+  font-size: 64px;
+  line-height: 0.95;
+  font-weight: 400;
+  text-align: right;
+  margin: 0;
+}
+
+.resume-header h2 span {
+  color: var(--accentColor);
+}
+
+.resume-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.resume-card {
+  min-height: 300px;
+  box-sizing: border-box;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background:
+    linear-gradient(140deg, rgba(20, 184, 166, 0.12), transparent 38%),
+    rgba(255, 255, 255, 0.035);
+}
+
+.resume-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: start;
+}
+
+.resume-card-top span {
+  color: var(--accentColor);
+  font-size: 13px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+.resume-card-top p {
+  max-width: 52%;
+  margin: 0;
+  text-align: right;
+  color: #aeb5bf;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.resume-card h3 {
+  max-width: 620px;
+  margin: 56px 0 22px;
+  font-size: 32px;
+  line-height: 1.06;
+  font-weight: 500;
+}
+
+.resume-card ul {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  color: #d8dde4;
+  line-height: 1.45;
+}
+
+.resume-card li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.resume-card li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accentColor);
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+}
+
+@media only screen and (max-width: 1100px) {
+  .resume-header {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .resume-header h2 {
+    text-align: left;
+    font-size: 48px;
+  }
+
+  .resume-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .resume-section {
+    padding: 70px 0 50px;
+  }
+
+  .resume-header h2 {
+    font-size: 38px;
+  }
+
+  .resume-card {
+    padding: 22px;
+  }
+
+  .resume-card-top {
+    flex-direction: column;
+  }
+
+  .resume-card-top p {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .resume-card h3 {
+    margin-top: 34px;
+    font-size: 26px;
+  }
+}
