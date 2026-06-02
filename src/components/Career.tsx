@@ -40,8 +40,9 @@ const resumeSections = [
     eyebrow: "Certifications",
     heading: "Certifications",
     intro: "Credentials that support AI, machine learning, and production-ready development skills.",
-    title: "Certifications",
+    title: "Completed Certificates",
     meta: "AWS, TensorFlow, IBM SkillsBuild",
+    hideMeta: true,
     points: [
       "AWS Certified Machine Learning - Specialty.",
       "TensorFlow Developer Certificate.",
@@ -119,10 +120,12 @@ const Career = () => {
           <div className={`resume-page-grid ${page.items.length === 1 ? "single" : ""}`}>
             {page.items.map((section) => (
               <article className="resume-card" key={`${section.eyebrow}-${section.title}`}>
-                <div className="resume-card-top">
-                  <span>{section.eyebrow}</span>
-                  <p>{section.meta}</p>
-                </div>
+                {!section.hideMeta && (
+                  <div className="resume-card-top">
+                    <span>{section.eyebrow}</span>
+                    <p>{section.meta}</p>
+                  </div>
+                )}
                 <h3>{section.title}</h3>
                 <ul>
                   {section.points.map((point) => (
