@@ -14,13 +14,12 @@ const projects = [
     ],
   },
   {
-    title: "AI Resume Parser",
-    category: "NLP and Machine Learning Automation",
-    tools: ["Python", "NLP", "spaCy", "Scikit-learn"],
+    title: "Live Weather Application",
+    category: "Real-Time Weather Dashboard",
+    tools: ["JavaScript", "REST APIs", "HTML", "CSS"],
     points: [
-      "Built an automated parser for extracting skills, education, and experience.",
-      "Used spaCy and Scikit-learn for classification and information extraction.",
-      "Reduced manual screening effort for shortlisting and profile analysis.",
+      "Built a responsive weather application that fetches and displays real-time weather data for any city using the OpenWeatherMap API.",
+      "Implemented dynamic UI updates including temperature, humidity, wind speed, and weather condition icons based on live API responses.",
     ],
   },
   {

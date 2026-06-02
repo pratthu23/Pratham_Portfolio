@@ -27,20 +27,25 @@
 
 .carousel-track-container {
   overflow: hidden;
+  overflow: clip;
   width: 100%;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  clip-path: inset(0);
+  contain: paint;
 }
 
 .carousel-track {
   display: flex;
+  gap: 0;
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
 
 .carousel-slide {
-  min-width: 100%;
-  flex-shrink: 0;
+  flex: 0 0 100%;
+  min-width: 0;
+  max-width: 100%;
   box-sizing: border-box;
   padding: 46px 0;
 }
@@ -53,6 +58,7 @@
 }
 
 .project-text-card {
+  width: 100%;
   min-height: 360px;
   padding: 48px;
   box-sizing: border-box;
@@ -207,6 +213,16 @@
     font-size: 50px;
   }
 
+  .carousel-arrow-left {
+    left: -28px;
+  }
+
+  .carousel-arrow-right {
+    right: -28px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
   .carousel-arrow-left {
     left: 10px;
   }
