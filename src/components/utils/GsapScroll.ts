@@ -68,8 +68,7 @@ export function setCharTimeline(
         .to(camera.position, { z: 22 }, 0)
         .fromTo(".character-model", { x: 0 }, { x: "-25%", duration: 1 }, 0)
         .to(".landing-container", { opacity: 0, duration: 0.4 }, 0)
-        .to(".landing-container", { y: "40%", duration: 0.8 }, 0)
-        .fromTo(".about-me", { y: "-50%" }, { y: "0%" }, 0);
+        .to(".landing-container", { y: "40%", duration: 0.8 }, 0);
 
       tl2
         .to(
@@ -77,8 +76,6 @@ export function setCharTimeline(
           { z: 75, y: 8.4, duration: 6, delay: 2, ease: "power3.inOut" },
           0
         )
-        .to(".about-section", { y: "30%", duration: 6 }, 0)
-        .to(".about-section", { opacity: 0, delay: 3, duration: 2 }, 0)
         .fromTo(
           ".character-model",
           { pointerEvents: "inherit" },
@@ -134,4 +131,5 @@ export function setCharTimeline(
 
 export function setAllTimeline() {
   gsap.set(".resume-card", { opacity: 1, y: 0 });
+  gsap.set([".about-section", ".about-me"], { opacity: 1, y: 0 });
 }

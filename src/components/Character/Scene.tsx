@@ -28,8 +28,7 @@ const Scene = () => {
         .fromTo(".character-model", { x: 0 }, { x: "-25%", duration: 1 }, 0)
         .to(".avatar-image", { scale: 0.9, duration: 1 }, 0)
         .to(".landing-container", { opacity: 0, duration: 0.4 }, 0)
-        .to(".landing-container", { y: "40%", duration: 0.8 }, 0)
-        .fromTo(".about-me", { y: "-50%" }, { y: "0%" }, 0);
+        .to(".landing-container", { y: "40%", duration: 0.8 }, 0);
 
       const tl2 = gsap.timeline({
         scrollTrigger: {
@@ -42,8 +41,6 @@ const Scene = () => {
       });
 
       tl2
-        .to(".about-section", { y: "30%", duration: 6 }, 0)
-        .to(".about-section", { opacity: 0, delay: 3, duration: 2 }, 0)
         .to(
           ".character-model",
           { pointerEvents: "none", x: "-12%", y: "-18%", scale: 0.58, delay: 2, duration: 5 },
