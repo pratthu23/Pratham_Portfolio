@@ -40,11 +40,12 @@ const resumeSections = [
     eyebrow: "Certifications",
     heading: "Certifications",
     intro: "Credentials that support AI, machine learning, and production-ready development skills.",
-    title: "AI & Machine Learning Credentials",
-    meta: "AWS and TensorFlow",
+    title: "Certifications",
+    meta: "AWS, TensorFlow, IBM SkillsBuild",
     points: [
       "AWS Certified Machine Learning - Specialty.",
       "TensorFlow Developer Certificate.",
+      "Artificial Intelligence Fundamentals - IBM SkillsBuild.",
     ],
   },
   {
