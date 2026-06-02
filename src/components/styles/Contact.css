@@ -32,17 +32,18 @@
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1.25fr 1fr 0.8fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 18px;
 }
 
 .contact-card {
-  min-height: 260px;
+  min-height: 190px;
   padding: 28px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  justify-content: center;
+  gap: 18px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   background:
@@ -69,8 +70,9 @@
 }
 
 .contact-card-large a {
-  font-size: 24px;
+  font-size: clamp(28px, 4vw, 52px);
   line-height: 1.1;
+  word-break: break-word;
 }
 
 a.contact-social {
