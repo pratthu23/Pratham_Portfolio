@@ -12,6 +12,7 @@
   height: 100%;
   position: relative;
   max-width: var(--cMaxWidth);
+  z-index: 20;
 }
 
 .landing-circle1 {
@@ -234,8 +235,9 @@
   font-size: 22px;
   letter-spacing: 2px;
   font-weight: 300;
-  color: var(--accentColor);
+  color: #5eead4;
   margin: 0;
+  text-shadow: 0 0 24px rgba(20, 184, 166, 0.35);
 }
 
 .landing-info h2 {
@@ -250,6 +252,8 @@
   display: block;
   text-transform: uppercase;
   letter-spacing: 2px;
+  color: #f5f2f7;
+  text-shadow: 0 0 30px rgba(245, 242, 247, 0.18);
 }
 
 .landing-h2-info-1 {
@@ -257,7 +261,7 @@
 }
 
 h2.landing-info-h2 {
-  color: #14b8a6;
+  color: #5eead4;
   font-size: 42px;
   width: auto;
   margin: 0;
@@ -339,14 +343,14 @@ h2.landing-info-h2 {
   .character-model {
     height: 100vh;
     bottom: 0;
-    z-index: 5;
+    z-index: 2;
     position: fixed;
   }
 
   .avatar-image {
     bottom: -1vh;
-    height: min(74vh, 680px);
-    max-width: min(36vw, 560px);
+    height: min(70vh, 640px);
+    max-width: min(32vw, 520px);
   }
 
   .character-model::after,
@@ -414,8 +418,8 @@ h2.landing-info-h2 {
 
 @media screen and (min-width: 1600px) {
   .avatar-image {
-    height: min(76vh, 720px);
-    max-width: min(34vw, 620px);
+    height: min(72vh, 680px);
+    max-width: min(32vw, 580px);
   }
 
   .landing-intro {
