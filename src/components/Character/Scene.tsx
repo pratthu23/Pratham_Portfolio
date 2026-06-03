@@ -11,8 +11,7 @@ const Scene = () => {
 
   useEffect(() => {
     const timer = window.setTimeout(() => setLoading(100), 500);
-    let contactObserver: IntersectionObserver | undefined;
-    let contactFrame: number | undefined;
+    let sectionFrame: number | undefined;
     setAllTimeline();
 
     if (window.innerWidth > 1024) {
@@ -75,45 +74,22 @@ const Scene = () => {
         .fromTo(".character-model", { y: "-18%" }, { y: "-100%", duration: 4, ease: "none", delay: 1 }, 0)
         .fromTo(".whatIDO", { y: 0 }, { y: "15%", duration: 2 }, 0);
 
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: ".contact-section",
-          start: "top 85%",
-          end: "top 45%",
-          scrub: true,
-          invalidateOnRefresh: true,
-        },
-      }).to(".character-model", { opacity: 0, duration: 1, pointerEvents: "none" }, 0);
+      const avatarHiddenSections = [".resume-pages", ".work-section", ".contact-section"];
+      const updateAvatarVisibility = () => {
+        const shouldHide = avatarHiddenSections.some((selector) => {
+          const section = document.querySelector(selector);
+          if (!section) return false;
+          const rect = section.getBoundingClientRect();
+          return rect.top < window.innerHeight * 0.82 && rect.bottom > window.innerHeight * 0.18;
+        });
 
-      const contactSection = document.querySelector(".contact-section");
-      if (contactSection) {
-        contactObserver = new IntersectionObserver(
-          ([entry]) => {
-            gsap.to(".character-model", {
-              autoAlpha: entry.isIntersecting ? 0 : 1,
-              duration: 0.25,
-              overwrite: true,
-              pointerEvents: "none",
-            });
-          },
-          { threshold: 0.15 }
-        );
-        contactObserver.observe(contactSection);
-
-        const updateContactAvatar = () => {
-          const rect = contactSection.getBoundingClientRect();
-          const isVisible =
-            rect.top < window.innerHeight * 0.82 &&
-            rect.bottom > window.innerHeight * 0.18;
-
-          gsap.set(".character-model", {
-            autoAlpha: isVisible ? 0 : 1,
-            pointerEvents: "none",
-          });
-          contactFrame = window.requestAnimationFrame(updateContactAvatar);
-        };
-        contactFrame = window.requestAnimationFrame(updateContactAvatar);
-      }
+        gsap.set(".character-model", {
+          autoAlpha: shouldHide ? 0 : 1,
+          pointerEvents: "none",
+        });
+        sectionFrame = window.requestAnimationFrame(updateAvatarVisibility);
+      };
+      sectionFrame = window.requestAnimationFrame(updateAvatarVisibility);
     } else {
       gsap.timeline({
         scrollTrigger: {
@@ -126,9 +102,8 @@ const Scene = () => {
 
     return () => {
       window.clearTimeout(timer);
-      contactObserver?.disconnect();
-      if (contactFrame) {
-        window.cancelAnimationFrame(contactFrame);
+      if (sectionFrame) {
+        window.cancelAnimationFrame(sectionFrame);
       }
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
