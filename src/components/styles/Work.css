@@ -1,15 +1,16 @@
 .work-section {
   position: relative;
-  z-index: 1;
+  z-index: 20;
   background-color: var(--backgroundColor);
-  padding: 100px 0;
+  padding: 88px 0;
 }
 
 .work-section h2 {
-  font-size: 70px;
+  font-size: clamp(42px, 5vw, 64px);
   font-weight: 500;
   margin-top: 0;
-  margin-bottom: 50px;
+  margin-bottom: 34px;
+  line-height: 1;
 }
 
 .work-section h2 > span {
@@ -23,6 +24,8 @@
 .carousel-wrapper {
   position: relative;
   width: 100%;
+  padding: 0 62px;
+  box-sizing: border-box;
 }
 
 .carousel-track-container {
@@ -47,7 +50,7 @@
   min-width: 0;
   max-width: 100%;
   box-sizing: border-box;
-  padding: 46px 0;
+  padding: 0;
 }
 
 .carousel-content {
@@ -59,8 +62,8 @@
 
 .project-text-card {
   width: 100%;
-  min-height: 360px;
-  padding: 48px;
+  min-height: 320px;
+  padding: 36px;
   box-sizing: border-box;
   border: 1px solid rgba(94, 234, 212, 0.16);
   background:
@@ -86,7 +89,7 @@
 }
 
 .carousel-details h4 {
-  font-size: 42px;
+  font-size: clamp(30px, 3.5vw, 42px);
   line-height: 1.04;
   font-weight: 500;
   margin: 0;
@@ -172,11 +175,11 @@
 }
 
 .carousel-arrow-left {
-  left: -70px;
+  left: 0;
 }
 
 .carousel-arrow-right {
-  right: -70px;
+  right: 0;
 }
 
 .carousel-dots {
@@ -208,30 +211,6 @@
   box-shadow: 0 0 8px rgba(94, 234, 212, 0.4);
 }
 
-@media only screen and (max-width: 1400px) {
-  .work-section h2 {
-    font-size: 50px;
-  }
-
-  .carousel-arrow-left {
-    left: -28px;
-  }
-
-  .carousel-arrow-right {
-    right: -28px;
-  }
-}
-
-@media only screen and (max-width: 1000px) {
-  .carousel-arrow-left {
-    left: 10px;
-  }
-
-  .carousel-arrow-right {
-    right: 10px;
-  }
-}
-
 @media only screen and (max-width: 900px) {
   .work-section {
     padding: 60px 0;
@@ -243,10 +222,43 @@
   }
 
   .project-text-card {
-    min-height: 440px;
-    padding: 32px 24px;
+    min-height: 0;
+    padding: 28px 24px;
     flex-direction: column;
     gap: 20px;
+  }
+
+  .carousel-wrapper {
+    padding: 0;
+  }
+
+  .carousel-arrow {
+    position: static;
+    transform: none;
+  }
+
+  .carousel-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .carousel-track-container {
+    order: 1;
+    grid-column: 1 / -1;
+  }
+
+  .carousel-arrow-left,
+  .carousel-arrow-right {
+    order: 2;
+    display: inline-flex;
+    justify-self: center;
+  }
+
+  .carousel-dots {
+    order: 3;
+    grid-column: 1 / -1;
+    margin-top: 0;
   }
 
   .carousel-number h3 {
