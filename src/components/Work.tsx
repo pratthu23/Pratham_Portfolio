@@ -4,6 +4,16 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
+    title: "RegIntel AI Compliance Platform",
+    category: "Agentic Regulatory Intelligence System",
+    tools: ["JavaScript", "Python Backend", "Firebase", "Local ML", "Ollama"],
+    points: [
+      "Built an AI-powered banking compliance platform for regulatory document ingestion, clause extraction, and change detection.",
+      "Generated MAPs with task ownership, deadline, priority, risk score, and department routing across Compliance, Legal, Risk, Operations, Audit, and IT.",
+      "Added evidence validation, role-based dashboards, audit trails, PDF report exports, Firebase sync, and optional local LLM support through Ollama.",
+    ],
+  },
+  {
     title: "Hand Gesture Mouse Control",
     category: "Touchless Virtual Mouse System",
     tools: ["Python", "OpenCV", "MediaPipe", "Gesture Recognition"],
