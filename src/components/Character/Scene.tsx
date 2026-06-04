@@ -8,7 +8,6 @@ const Scene = () => {
 
   useEffect(() => {
     const timer = window.setTimeout(() => setLoading(100), 500);
-    let sectionFrame: number | undefined;
     setAllTimeline();
 
     if (window.innerWidth > 1024) {
@@ -24,17 +23,21 @@ const Scene = () => {
           autoAlpha: shouldShow ? 1 : 0,
           pointerEvents: "none",
         });
-        sectionFrame = window.requestAnimationFrame(updateAvatarVisibility);
       };
 
-      sectionFrame = window.requestAnimationFrame(updateAvatarVisibility);
+      updateAvatarVisibility();
+      window.addEventListener("scroll", updateAvatarVisibility, { passive: true });
+      window.addEventListener("resize", updateAvatarVisibility);
+
+      return () => {
+        window.clearTimeout(timer);
+        window.removeEventListener("scroll", updateAvatarVisibility);
+        window.removeEventListener("resize", updateAvatarVisibility);
+      };
     }
 
     return () => {
       window.clearTimeout(timer);
-      if (sectionFrame) {
-        window.cancelAnimationFrame(sectionFrame);
-      }
     };
   }, [setLoading]);
 
